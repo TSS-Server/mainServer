@@ -6,20 +6,29 @@ from telegram.ext import (
     ContextTypes,
     filters
 )
+import os
 
 TOKEN = "8829230109:AAEIdjqKWM-F25E3hjHZDUgqm0LekVP_01c"
 
 
-FILES = {}
+FILES = os.listdir()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "Welcome!\n\nUse /list to see files\nUse /get <name> to download"
     )
+
+async def get(update : Update , context : ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        f"{str(FILES)}"
+    )
+
+
 def main():
     app = Application.builder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("get",get))
     # app.add_handler(CommandHandler("list", list_files))
     # app.add_handler(CommandHandler("get", get_file))
 
