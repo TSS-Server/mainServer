@@ -19,9 +19,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def get(update : Update , context : ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        f"{str(FILES)}"
-    )
+    await update.message.reply_document(f"{str(FILES[1])}")
 
 
 def main():
