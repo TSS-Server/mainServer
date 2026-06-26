@@ -25,7 +25,7 @@ async def get(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     # Using the first valid file found safely
-    target_file = valid_files[0] 
+    target_file = "3045928615-S.pdf" 
 
     with open(target_file, "rb") as file:
         await update.message.reply_document(
