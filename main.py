@@ -11,7 +11,7 @@ import os
 TOKEN = "8829230109:AAEIdjqKWM-F25E3hjHZDUgqm0LekVP_01c"
 
 
-FILES = os.listdir()
+files = os.listdir()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
@@ -19,7 +19,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def get(update : Update , context : ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_document(f"{str(FILES[1])}")
+    with open(files[-2] , "rb") as file:
+        await update.message.reply_document(
+            document=file,
+            filename=file.name
+            caption="Here is the file"
+        )
 
 
 def main():
