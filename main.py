@@ -17,22 +17,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def get(update: Update, context: ContextTypes.DEFAULT_TYPE):
     files = os.listdir()
     
-    # Filter out script files so you don't accidentally send your code/token
-    valid_files = [f for f in files if os.path.isfile(f) and not f.endswith('.py')]
-    
-    if not valid_files:
-        await update.message.reply_text("No files available for download.")
-        return
-
-    # Using the first valid file found safely
-    target_file = "3045928615-S.pdf" 
-
-    with open(target_file, "rb") as file:
-        await update.message.reply_document(
-            document=file,
-            filename=os.path.basename(file.name),
-            caption="Here is the file!"  # Added the missing comma right above this line
-        )
+    if not context.args:
+        await update.message.reply_text("Provide an attribute such as '/get 2026-x-x'")
+    print(context.args)
 
 def main():
     app = Application.builder().token(TOKEN).build()
