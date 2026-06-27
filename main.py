@@ -6,7 +6,7 @@ from telegram.ext import (
     ContextTypes
 )
 
-TOKEN = "8829230109:AAG--eskcJlzIl2H-KTy8EL-horKgMWQO-w"
+TOKEN = "8829230109:AAHfAzHLMl1dNYAlajNIOdncnw7eZ7s1Uyg"
 
 # It is safer to list files inside the function so it reads the folder in real-time
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
